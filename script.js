@@ -1,20 +1,25 @@
 
-// fixed
-const counts = {
+// fixed values
+const count = {
   todo: 80,
   done: 100,
 };
-// const initialBeansPerRow = 10;
-const beansPerRow = 10;
+const beansPerRowOptions = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 200, 250, 500, 1000];
 const containerPad = 100;
 
 // register dom elements
 const todoEl = document.getElementById('todo');
 const doneEl = document.getElementById('done');
 
-// derive sizes
+// derive values
 const availableGridWidth = todoEl.offsetWidth - containerPad;
-const columnCount = Math.max(counts.todo, counts.done) / beansPerRow;
+const maxCount = Math.max(count.todo, count.done);
+const idealSquareLength = Math.sqrt(maxCount);
+const beansPerRow = beansPerRowOptions.reduce((prev, curr) => {
+  return (Math.abs(curr - idealSquareLength) < Math.abs(prev - idealSquareLength) ? curr : prev);
+}) || 10;
+
+const columnCount = Math.max(count.todo, count.done) / beansPerRow;
 const beanSize = availableGridWidth / Math.max(beansPerRow, columnCount);
 const gridStyle =`
   height: ${availableGridWidth}px;
@@ -25,7 +30,7 @@ doneEl.style.cssText = gridStyle;
 
 // render beans: todo
 let todoBeanEls = [];
-Array(counts.todo).fill().map((_, i) => {
+Array(count.todo).fill().map((_, i) => {
   const beanEl = document.createElement('div');
   beanEl.className = 'bean';
 
@@ -43,7 +48,7 @@ todoEl.append(...todoBeanEls);
 
 // render beans: done
 let doneBeanEls = [];
-Array(counts.done).fill().map((_, i) => {
+Array(count.done).fill().map((_, i) => {
   const beanEl = document.createElement('div');
   beanEl.className = 'bean';
 
