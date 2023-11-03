@@ -1,7 +1,7 @@
 :root {
   --bg: #e5f9ff;
-  --jarHeight: 400px;
-  --beanSize: 25px;
+  --jarHeight: 500px;
+  --beanSize: 20px;
 }
 
 * {
@@ -35,21 +35,18 @@ body {
 
 .sphere {
   position: absolute;
-  /* top: -80%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -80%); */
-  width: var(--beanSize);
-  height: var(--beanSize);
   background: radial-gradient(
     circle at 2% 2%,
-    #c9867f,
-    #7e4642,
-    #562723,
-    #331412,
+    #e6988f,
+    #a05954,
+    #833c35,
+    #52211d,
     #210c0b,
     #000000
   );
   border-radius: 50%;
+  height: var(--beanSize);
+  width: var(--beanSize);
 }
 
 /* reference: https://cssanimation.rocks/spheres/ */
