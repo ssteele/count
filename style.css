@@ -1,6 +1,5 @@
 :root {
   --bg: #e5f9ff;
-  --jarHeight: 500px;
   --beanSize: 20px;
 }
 
@@ -10,30 +9,23 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: var(--bg);
   overflow: hidden;
 }
 
 #main {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.jar {
-  height: var(--jarHeight);
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
 }
 
 .container {
   position: relative;
+  width: 100%;
 }
 
-.sphere {
+.bean {
   position: absolute;
   background: radial-gradient(
     circle at 2% 2%,
@@ -45,43 +37,6 @@ body {
     #000000
   );
   border-radius: 50%;
-  height: var(--beanSize);
-  width: var(--beanSize);
+  /* height: var(--beanSize);
+  width: var(--beanSize); */
 }
-
-/* reference: https://cssanimation.rocks/spheres/ */
-/* .sphere:before {
-  content: "";
-  position: absolute;
-  background: radial-gradient(
-    circle at 50% 120%,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0) 70%
-  );
-  border-radius: 50%;
-  bottom: 2.5%;
-  left: 5%;
-  opacity: 0.6;
-  height: 100%;
-  width: 90%;
-  filter: blur(5px);
-  z-index: 2;
-}
-
-.sphere:after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 5%;
-  left: 10%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.8) 14%,
-    rgba(255, 255, 255, 0) 24%
-  );
-  transform: translateX(-80px) translateY(-90px) skewX(-20deg);
-  filter: blur(2%);
-} */
