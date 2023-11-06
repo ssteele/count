@@ -1,7 +1,7 @@
 
 // fixed values
 const count = {
-  todo: 80,
+  todo: 100,
   done: 100,
 };
 const beansPerRowOptions = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 200, 250, 500, 1000];
@@ -28,7 +28,7 @@ const gridStyle =`
 todoEl.style.cssText = gridStyle;
 doneEl.style.cssText = gridStyle;
 
-// render beans: todo
+// render todo beans
 let todoBeanEls = [];
 Array(count.todo).fill().map((_, i) => {
   const beanEl = document.createElement('div');
@@ -46,7 +46,7 @@ Array(count.todo).fill().map((_, i) => {
 });
 todoEl.append(...todoBeanEls);
 
-// render beans: done
+// render done beans
 let doneBeanEls = [];
 Array(count.done).fill().map((_, i) => {
   const beanEl = document.createElement('div');
