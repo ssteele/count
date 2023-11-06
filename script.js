@@ -1,8 +1,8 @@
 
 // fixed values
 const count = {
-  todo: 1000,
-  done: 1000,
+  todo: 100,
+  done: 80,
 };
 const label = {
   todo: 'Days remaining',
