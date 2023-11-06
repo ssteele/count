@@ -8,18 +8,18 @@
 }
 
 body {
-  margin: 0;
   background: var(--bg);
   color: #555;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
+  margin: 0;
   overflow: hidden;
 }
 
 #main {
-  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 100vh;
   place-items: center;
 }
 
@@ -36,7 +36,6 @@ body {
 }
 
 .bean {
-  position: absolute;
   background: radial-gradient(
     circle at 2% 2%,
     #e6988f,
@@ -47,6 +46,5 @@ body {
     #000000
   );
   border-radius: 50%;
-  /* height: var(--beanSize);
-  width: var(--beanSize); */
+  position: absolute;
 }
