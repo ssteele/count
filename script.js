@@ -1,10 +1,14 @@
 
 // fixed values
 const count = {
-  todo: 100,
-  done: 100,
+  todo: 1000,
+  done: 1000,
 };
-const beansPerRowOptions = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 200, 250, 500, 1000];
+const label = {
+  todo: 'Days remaining',
+  done: 'Days attended',
+};
+const beansPerRowOptions = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 200, 250, 500, 1000, 5000, 10000];
 const containerPad = 100;
 
 // register dom elements
@@ -46,6 +50,20 @@ Array(count.todo).fill().map((_, i) => {
 });
 todoEl.append(...todoBeanEls);
 
+// render todo labels
+const todoLabel = document.createElement('h2');
+todoLabel.className = 'label';
+const todoLabelContent = document.createTextNode(label.todo);
+todoLabel.appendChild(todoLabelContent);
+
+const todoCount = document.createElement('div');
+todoCount.className = 'count';
+const todoCountContent = document.createTextNode(count.todo);
+todoCount.appendChild(todoCountContent);
+
+todoEl.append(todoLabel);
+todoEl.append(todoCount);
+
 // render done beans
 let doneBeanEls = [];
 Array(count.done).fill().map((_, i) => {
@@ -63,3 +81,17 @@ Array(count.done).fill().map((_, i) => {
   doneBeanEls.push(beanEl);
 });
 doneEl.append(...doneBeanEls);
+
+// render done labels
+const doneLabel = document.createElement('h2');
+doneLabel.className = 'label';
+const doneLabelContent = document.createTextNode(label.done);
+doneLabel.appendChild(doneLabelContent);
+
+const doneCount = document.createElement('div');
+doneCount.className = 'count';
+const doneCountContent = document.createTextNode(count.done);
+doneCount.appendChild(doneCountContent);
+
+doneEl.append(doneLabel);
+doneEl.append(doneCount);
