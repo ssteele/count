@@ -11,6 +11,6 @@ const label = {
 };
 
 renderBeans({
-    count,
-    label,
+  count,
+  label,
 });
