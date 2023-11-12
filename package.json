@@ -1,0 +1,16 @@
+{
+  "name": "count",
+  "version": "1.0.0",
+  "description": "Count visualizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "count",
+    "beans",
+    "js"
+  ],
+  "author": "Steve Steele",
+  "license": "ISC"
+}
