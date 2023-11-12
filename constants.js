@@ -1,3 +1,3 @@
-
+export const BEANS_PER_ROW_DEFAULT = 10;
 export const BEANS_PER_ROW_OPTIONS = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 200, 250, 500, 1000, 5000, 10000];
 export const CONTAINER_PAD = 100;

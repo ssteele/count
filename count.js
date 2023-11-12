@@ -1,5 +1,8 @@
-
-import { BEANS_PER_ROW_OPTIONS, CONTAINER_PAD } from './constants.js';
+import {
+    BEANS_PER_ROW_DEFAULT,
+    BEANS_PER_ROW_OPTIONS,
+    CONTAINER_PAD,
+} from './constants.js';
 import { getDomElements } from './dom.js';
 
 // register dom elements
@@ -58,8 +61,8 @@ export const renderBeans = ({
     const maxCount = Math.max(count.todo, count.done);
     const idealSquareLength = Math.sqrt(maxCount);
     const beansPerRow = BEANS_PER_ROW_OPTIONS.reduce((prev, curr) => {
-    return (Math.abs(curr - idealSquareLength) < Math.abs(prev - idealSquareLength) ? curr : prev);
-    }) || 10;
+        return (Math.abs(curr - idealSquareLength) < Math.abs(prev - idealSquareLength) ? curr : prev);
+    }) || BEANS_PER_ROW_DEFAULT;
 
     const columnCount = Math.max(count.todo, count.done) / beansPerRow;
     const beanSize = availableGridWidth / Math.max(beansPerRow, columnCount);
