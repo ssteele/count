@@ -1,3 +1,16 @@
-import { getDomElements } from './dom.js';
+import { renderBeans } from './count.js';
 
-const { todoEl, doneEl } = getDomElements();
+// fixed values
+const count = {
+  done: 80,
+  todo: 100,
+};
+const label = {
+  done: 'Days attended',
+  todo: 'Days remaining',
+};
+
+renderBeans({
+    count,
+    label,
+});
