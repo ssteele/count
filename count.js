@@ -11,10 +11,6 @@ const label = {
 const beansPerRowOptions = [5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 200, 250, 500, 1000, 5000, 10000];
 const containerPad = 100;
 
-// register dom elements
-const todoEl = document.getElementById('todo');
-const doneEl = document.getElementById('done');
-
 // derive values
 const availableGridWidth = todoEl.offsetWidth - containerPad;
 const maxCount = Math.max(count.todo, count.done);
