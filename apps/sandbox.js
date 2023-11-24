@@ -2,12 +2,12 @@ import { renderBeans } from '/count.js';
 
 // fixed values
 const count = {
-  done: 80,
+  done: 50,
   todo: 100,
 };
 const label = {
-  done: 'Days attended',
-  todo: 'Days remaining',
+  done: 'Done',
+  todo: 'Todo',
 };
 
 export const sandbox = () => {
