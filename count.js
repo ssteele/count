@@ -65,7 +65,7 @@ export const renderBeans = ({
   const beansPerRow = BEANS_PER_ROW_OPTIONS.reduce((prev, curr) => {
     return (Math.abs(curr - idealSquareLength) < Math.abs(prev - idealSquareLength) ? curr : prev);
   }) || BEANS_PER_ROW_DEFAULT;
-  const columnCount = Math.max(count.todo, count.done) / beansPerRow;
+  const columnCount = Math.ceil(Math.max(count.todo, count.done) / beansPerRow);
   let beanSize = availableGridWidth / Math.max(beansPerRow, columnCount);
 
   let gridHeight = columnCount * beanSize;
