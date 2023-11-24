@@ -1,16 +1,3 @@
-import { renderBeans } from './count.js';
+import { schoolDays } from './apps/school-days.js';
 
-// fixed values
-const count = {
-  done: 80,
-  todo: 100,
-};
-const label = {
-  done: 'Days attended',
-  todo: 'Days remaining',
-};
-
-renderBeans({
-  count,
-  label,
-});
+schoolDays();
