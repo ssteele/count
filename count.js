@@ -57,17 +57,28 @@ export const renderBeans = ({
   label,
 }) => {
   // derive values
+  const windowHeight = window.innerHeight;
   const availableGridWidth = todoEl.offsetWidth - CONTAINER_PAD;
+
   const maxCount = Math.max(count.todo, count.done);
   const idealSquareLength = Math.sqrt(maxCount);
   const beansPerRow = BEANS_PER_ROW_OPTIONS.reduce((prev, curr) => {
     return (Math.abs(curr - idealSquareLength) < Math.abs(prev - idealSquareLength) ? curr : prev);
   }) || BEANS_PER_ROW_DEFAULT;
   const columnCount = Math.max(count.todo, count.done) / beansPerRow;
-  const beanSize = availableGridWidth / Math.max(beansPerRow, columnCount);
+  let beanSize = availableGridWidth / Math.max(beansPerRow, columnCount);
+
+  let gridHeight = columnCount * beanSize;
+  if (gridHeight > windowHeight - CONTAINER_PAD * 4) {
+    gridHeight = windowHeight - CONTAINER_PAD * 4;
+    beanSize = gridHeight / Math.max(beansPerRow, columnCount);
+  }
+
+  const gridWidth = beansPerRow * beanSize;
+
   const gridStyle = `
-    height: ${availableGridWidth}px;
-    width: ${availableGridWidth}px;
+    height: ${gridHeight}px;
+    width: ${gridWidth}px;
   `;
   todoEl.style.cssText = gridStyle;
   doneEl.style.cssText = gridStyle;
