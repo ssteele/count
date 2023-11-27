@@ -2,11 +2,20 @@ import {
   BEANS_PER_ROW_DEFAULT,
   BEANS_PER_ROW_OPTIONS,
   CONTAINER_PAD,
-} from './constants.js';
-import { getDomElements } from './dom.js';
+} from '/constants.js';
+import { getDomElements } from '/dom.js';
 
 // register dom elements
-const { todoEl, doneEl } = getDomElements();
+const { appSelector, todoEl, doneEl } = getDomElements();
+
+export const renderSelector = (options = []) => {
+  options.map(option => {
+    const optionEl = document.createElement('option');
+    optionEl.value = option.value;
+    optionEl.innerHTML = option.label;
+    appSelector.appendChild(optionEl);
+  })
+}
 
 const generateBeans = ({
   beansPerRow,
@@ -51,7 +60,6 @@ const generateLabels = ({
   element.append(countEl);
 }
 
-// render beans
 export const renderBeans = ({
   count,
   label,
@@ -108,4 +116,12 @@ export const renderBeans = ({
     element: doneEl,
     label: label.done,
   });
+}
+
+export const clearBeans = () => {
+  todoEl.innerHTML = '';
+  todoEl.style.cssText = {};
+
+  doneEl.innerHTML = '';
+  doneEl.style.cssText = {};
 }

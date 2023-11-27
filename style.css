@@ -16,6 +16,11 @@ body {
   overflow: hidden;
 }
 
+#app-selector {
+  margin: 0.5rem;
+  position: fixed;
+}
+
 #main {
   display: grid;
   grid-template-columns: 1fr 1fr;
