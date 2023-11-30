@@ -15,6 +15,8 @@ const appOptions = [
 ]
 renderSelector(appOptions);
 
+let currentApp = appOptions[0].value;
+
 const loadApp = (trigger = '') => {
   if (!!trigger && appOptions.map(app => app.value).includes(trigger)) {
     clearBeans();
@@ -24,11 +26,11 @@ const loadApp = (trigger = '') => {
 
 const { appSelector } = getDomElements();
 appSelector.addEventListener('change', (event) => {
-  const appOption = event.target?.value;
-  if (!appOption) {
+  currentApp = event.target?.value;
+  if (!currentApp) {
     return;
   }
-  loadApp(appOption);
+  loadApp(currentApp);
 });
 
-loadApp(appOptions[0].value);
+loadApp(currentApp);
