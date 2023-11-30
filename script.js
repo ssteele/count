@@ -4,30 +4,31 @@ import { clearBeans, renderSelector } from '/count.js';
 import { sandbox } from '/apps/sandbox.js';
 import { schoolDays } from '/apps/school-days.js';
 
-const { appSelector } = getDomElements();
+const appTriggerMap = {
+  sandbox,
+  schoolDays,
+};
 
-const apps = [
+const appOptions = [
+  { label: 'School Days', value: 'schoolDays' },
   { label: 'Sandbox', value: 'sandbox' },
-  { label: 'School Days', value: 'school-days' },
 ]
-renderSelector(apps);
+renderSelector(appOptions);
 
+const loadApp = (trigger = '') => {
+  if (!!trigger && appOptions.map(app => app.value).includes(trigger)) {
+    clearBeans();
+    appTriggerMap[trigger]();
+  }
+}
+
+const { appSelector } = getDomElements();
 appSelector.addEventListener('change', (event) => {
-  const selectedApp = event.target?.value;
-  if (!selectedApp) {
+  const appOption = event.target?.value;
+  if (!appOption) {
     return;
   }
-
-  clearBeans();
-  switch (selectedApp) {
-    case 'sandbox':
-      sandbox();
-      break;
-    case 'school-days':
-      schoolDays();
-      break;
-  }
+  loadApp(appOption);
 });
 
-sandbox();
-// schoolDays();
+loadApp(appOptions[0].value);
