@@ -13,6 +13,7 @@ export const renderSelector = (options = []) => {
     const optionEl = document.createElement('option');
     optionEl.value = option.value;
     optionEl.innerHTML = option.label;
+    optionEl.selected = option.selected;
     appSelector.appendChild(optionEl);
   })
 }
