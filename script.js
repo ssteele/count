@@ -12,12 +12,11 @@ const appTriggerMap = {
 
 let appOptions = [
   { label: 'School Days', value: 'schoolDays' },
-  { label: 'Sandbox', value: 'sandbox' },
+  // { label: 'Sandbox', value: 'sandbox' },
 ]
 
 const isApp = (trigger = '') => {
   return !!trigger
-    && appOptions.map(app => app.value).includes(trigger)
     && !!appTriggerMap[trigger];
 }
 
