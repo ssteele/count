@@ -12,31 +12,25 @@ const appTriggerMap = {
 
 let appOptions = [
   { label: 'School Days', value: 'schoolDays' },
-  // { label: 'Sandbox', value: 'sandbox' },
+  { label: 'Sandbox', value: 'sandbox' },
 ]
+
+let queryParams = new URLSearchParams(window.location.search);
 
 const isApp = (trigger = '') => {
   return !!trigger
     && !!appTriggerMap[trigger];
 }
 
-// check query params for current app selection
-const queryParams = new URLSearchParams(window.location.search);
-const appParam = queryParams.get('app');
-let currentApp = isApp(appParam) ? appParam : appOptions[0].value;
-
-const selectAppOption = ({ currentApp, appOptions }) => {
+const selectAppOption = ({ app, appOptions }) => {
   return appOptions.map(option => {
     option.selected = false;
-    if (currentApp === option.value) {
+    if (app === option.value) {
       option.selected = true;
     }
     return option;
   });
 }
-
-appOptions = selectAppOption({ currentApp, appOptions })
-renderSelector(appOptions);
 
 const loadApp = (trigger = '') => {
   if (isApp(trigger)) {
@@ -45,17 +39,32 @@ const loadApp = (trigger = '') => {
   }
 }
 
+const load = (app = '') => {
+  appOptions = selectAppOption({ app, appOptions })
+  renderSelector(appOptions);
+
+  loadApp(app);
+}
+
 const { appSelector } = getDomElements();
 appSelector.addEventListener('change', (event) => {
-  currentApp = event.target?.value;
-  if (!currentApp) {
+  const app = event.target?.value;
+  if (!app) {
     return;
   }
-  loadApp(currentApp);
 
   // update app query param
-  queryParams.set('app', currentApp);
+  queryParams.set('app', app);
   window.location.search = queryParams.toString();
+
+  load(app);
 });
 
-loadApp(currentApp);
+const init = () => {
+  // check query params for current app selection
+  const appParam = queryParams.get('app');
+  const app = isApp(appParam) ? appParam : appOptions[0].value;
+
+  load(app);
+}
+init();
