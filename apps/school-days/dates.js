@@ -1,6 +1,6 @@
 // import { generateDates } from '/time.js';
 
-// const generated = generateDates('2023-08-14T00:00:00', '2024-05-23T00:00:00');
+// const generated = generateDates('2023-08-14T21:10:00', '2024-05-23T21:10:00');
 // console.log('SHS generated:', generated); // @debug
 
 export const _2023_2024 = [
