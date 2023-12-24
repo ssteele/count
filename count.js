@@ -78,11 +78,10 @@ export const renderBeans = ({
   let beanSize = availableGridWidth / Math.max(beansPerRow, columnCount);
 
   let gridHeight = columnCount * beanSize;
-  if (gridHeight > windowHeight - CONTAINER_PAD * 4) {
-    gridHeight = windowHeight - CONTAINER_PAD * 4;
+  if (gridHeight > windowHeight - CONTAINER_PAD * 2) {
+    gridHeight = windowHeight - CONTAINER_PAD * 2;
     beanSize = gridHeight / Math.max(beansPerRow, columnCount);
   }
-
   const gridWidth = beansPerRow * beanSize;
 
   const gridStyle = `
