@@ -2,16 +2,19 @@ import { getDomElements } from '/dom.js';
 import { clearBeans, renderSelector } from '/count.js';
 
 import { sandbox } from '/apps/sandbox.js';
-import { schoolDays } from '/apps/school-days.js';
+import { harvi1stGradeDays } from '/apps/harvi-1st-grade-days.js';
+import { harvi2ndGradeDays } from '/apps/harvi-2nd-grade-days.js';
 
 // define apps
 const appTriggerMap = {
   sandbox,
-  schoolDays,
+  harvi1stGradeDays,
+  harvi2ndGradeDays,
 };
 
 let appOptions = [
-  { label: 'School Days', value: 'schoolDays' },
+  { label: 'Harvi 2nd Grade', value: 'harvi2ndGradeDays' },
+  { label: 'Harvi 1st Grade', value: 'harvi1stGradeDays' },
   { label: 'Sandbox', value: 'sandbox' },
 ]
 

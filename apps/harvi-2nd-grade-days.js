@@ -1,7 +1,7 @@
-import { _2023_2024 } from './school-days/dates.js';
+import { _2024_2025 } from './harvi-2nd-grade-days/dates.js';
 import { renderBeans } from '/count.js';
 
-const dates = _2023_2024;
+const dates = _2024_2025;
 const dateCount = dates.length;
 
 const now = new Date().getTime();
@@ -22,7 +22,7 @@ const label = {
   todo: 'Days remaining',
 };
 
-export const schoolDays = () => {
+export const harvi2ndGradeDays = () => {
   renderBeans({
     count,
     label,

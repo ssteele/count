@@ -24,7 +24,7 @@ export const filterWeekdays = (dates) => {
 
 export const generateDates = (start, end) => {
   let dates;
-  dates = getDatesForRange('2023-08-14T00:00:00', '2024-05-23T00:00:00');
+  dates = getDatesForRange(start, end);
   dates = filterWeekdays(dates);
   dates = getIsoDates(dates);
   return dates;
