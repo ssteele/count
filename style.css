@@ -19,6 +19,7 @@ body {
 #app-selector {
   margin: 0.5rem;
   position: fixed;
+  z-index: 200;
 }
 
 #main {
