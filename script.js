@@ -3,15 +3,18 @@ import { clearBeans, renderSelector } from '/count.js';
 
 import { sandbox } from '/apps/sandbox.js';
 import { aisdDays2024_2025 } from '/apps/aisd-days-2024-2025.js';
+import { mvDays2024_2025 } from '/apps/mv-days-2024-2025.js';
 
 // define apps
 const appTriggerMap = {
   aisdDays2024_2025,
+  mvDays2024_2025,
   // sandbox,
 };
 
 let appOptions = [
-  { label: 'Harvi 2nd Grade', value: 'aisdDays2024_2025' },
+  { label: 'Ridgetop', value: 'aisdDays2024_2025' },
+  { label: 'Mundo Verde', value: 'mvDays2024_2025' },
   // { label: 'Sandbox', value: 'sandbox' },
 ]
 
