@@ -1,4 +1,4 @@
-import { _2024_2025 } from './harvi-2nd-grade-days/dates.js';
+import { _2024_2025 } from './aisd-days-2024-2025/dates.js';
 import { renderBeans } from '/count.js';
 
 const dates = _2024_2025;
@@ -22,7 +22,7 @@ const label = {
   todo: 'Days remaining',
 };
 
-export const harvi2ndGradeDays = () => {
+export const aisdDays2024_2025 = () => {
   renderBeans({
     count,
     label,
