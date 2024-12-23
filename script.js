@@ -2,20 +2,17 @@ import { getDomElements } from '/dom.js';
 import { clearBeans, renderSelector } from '/count.js';
 
 import { sandbox } from '/apps/sandbox.js';
-import { aisdDays2023_2024 } from '/apps/aisd-days-2023-2024.js';
 import { aisdDays2024_2025 } from '/apps/aisd-days-2024-2025.js';
 
 // define apps
 const appTriggerMap = {
-  sandbox,
-  aisdDays2023_2024,
   aisdDays2024_2025,
+  // sandbox,
 };
 
 let appOptions = [
   { label: 'Harvi 2nd Grade', value: 'aisdDays2024_2025' },
-  { label: 'Harvi 1st Grade', value: 'aisdDays2023_2024' },
-  { label: 'Sandbox', value: 'sandbox' },
+  // { label: 'Sandbox', value: 'sandbox' },
 ]
 
 let queryParams = new URLSearchParams(window.location.search);
